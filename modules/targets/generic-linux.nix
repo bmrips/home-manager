@@ -11,7 +11,7 @@ let
 
   inherit (config.home) profileDirectory;
 
-  nixPkg = if config.nix.package == null then pkgs.nix else config.nix.package;
+  nixPkg = config.nix.package or pkgs.nix;
 
 in
 {
