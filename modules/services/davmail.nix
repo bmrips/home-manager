@@ -112,11 +112,10 @@ in
         ExecStart = "${lib.getExe cfg.package} ${settingsFile}";
         Restart = "on-failure";
 
-        CapabilityBoundingSet = [ "" ];
-        DeviceAllow = [ "" ];
+        CapabilityBoundingSet = [ "CAP_SYS_ADMIN" ];
+        DeviceAllow = [ "/dev/dri/* rw" ];
         LockPersonality = true;
         NoNewPrivileges = true;
-        PrivateDevices = true;
         PrivateTmp = true;
         PrivateUsers = true;
         ProtectClock = true;
