@@ -1,11 +1,8 @@
-{ config, ... }:
-
 {
   home.stateVersion = "23.05";
 
   programs.beets = {
     enable = true;
-    package = config.lib.test.mkStubPackage { outPath = "@beets@"; };
     mpdIntegration = {
       enableStats = true;
       host = "10.0.0.42";

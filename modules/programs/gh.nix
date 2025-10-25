@@ -195,7 +195,7 @@ in
           lib.nameValuePair host {
             helper = [
               ""
-              "${cfg.package}/bin/gh auth git-credential"
+              "${lib.getExe cfg.package} auth git-credential"
             ];
           }
         ) cfg.gitCredentialHelper.hosts

@@ -64,7 +64,7 @@ in
         };
 
         Service = {
-          ExecStart = "${cfg.package}/bin/foot --server";
+          ExecStart = "${lib.getExe cfg.package} --server";
           Restart = "on-failure";
           OOMPolicy = "continue";
         };

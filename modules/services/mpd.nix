@@ -190,7 +190,7 @@ in
 
           Service = {
             Environment = [ "PATH=${config.home.profileDirectory}/bin" ];
-            ExecStart = "${cfg.package}/bin/mpd --no-daemon ${mpdConf} ${lib.escapeShellArgs cfg.extraArgs}";
+            ExecStart = "${lib.getExe cfg.package} --no-daemon ${mpdConf} ${lib.escapeShellArgs cfg.extraArgs}";
             Type = "notify";
             ExecStartPre = ''${pkgs.bash}/bin/bash -c "${pkgs.coreutils}/bin/mkdir -p '${cfg.dataDir}' '${cfg.playlistDirectory}'"'';
           };

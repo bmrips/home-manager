@@ -1,14 +1,13 @@
-{ config, ... }:
-
 {
   home.stateVersion = "21.11";
 
   programs.waybar = {
-    package = config.lib.test.mkStubPackage { outPath = "@waybar@"; };
     enable = true;
     systemd.enable = true;
     systemd.target = "sway-session.target";
   };
+
+  test.stubs.waybar.name = "waybar";
 
   nmt.script = ''
     assertPathNotExists home-files/.config/waybar/config

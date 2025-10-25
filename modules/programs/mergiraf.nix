@@ -12,7 +12,7 @@ let
     maintainers
     ;
   cfg = config.programs.mergiraf;
-  mergiraf = "${cfg.package}/bin/mergiraf";
+  mergiraf = lib.getExe cfg.package;
 in
 {
   meta.maintainers = [ maintainers.bobvanderlinden ];

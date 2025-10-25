@@ -38,9 +38,8 @@ in
 
       Service = {
         Environment = [ "PATH=${config.home.profileDirectory}/bin" ];
-        ExecStart =
-          "${cfg.package}/bin/nextcloud" + (lib.optionalString cfg.startInBackground " --background");
-        ExecStop = "${cfg.package}/bin/nextcloud --quit";
+        ExecStart = lib.getExe cfg.package + lib.optionalString cfg.startInBackground " --background";
+        ExecStop = "${lib.getExe cfg.package} --quit";
         KillMode = "process";
         Restart = "on-failure";
         RestartSec = "5s";

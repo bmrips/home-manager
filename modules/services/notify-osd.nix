@@ -35,7 +35,7 @@ in
       Install.WantedBy = [ "graphical-session.target" ];
 
       Service = {
-        ExecStart = "${cfg.package}/bin/notify-osd";
+        ExecStart = lib.getExe cfg.package;
         Restart = "on-abort";
       };
     };

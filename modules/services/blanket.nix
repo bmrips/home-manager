@@ -46,7 +46,7 @@ in
       Install.WantedBy = [ "graphical-session.target" ];
 
       Service = {
-        ExecStart = "${cfg.package}/bin/blanket --gapplication-service";
+        ExecStart = "${lib.getExe cfg.package} --gapplication-service";
         Restart = "on-failure";
         RestartSec = 5;
       };

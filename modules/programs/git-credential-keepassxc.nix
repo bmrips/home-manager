@@ -46,7 +46,7 @@ in
                 lib.concatStringsSep " " (map (g: "--group ${g}") cfg.groups);
           in
           {
-            helper = "${cfg.package}/bin/git-credential-keepassxc ${groups}";
+            helper = "${lib.getExe cfg.package} ${groups}";
           };
       in
       if cfg.hosts == [ ] then

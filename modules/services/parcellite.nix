@@ -52,7 +52,7 @@ in
       };
 
       Service = {
-        ExecStart = "${cfg.package}/bin/${cfg.package.pname} ${lib.escapeShellArgs cfg.extraOptions}";
+        ExecStart = "${lib.getExe cfg.package} ${lib.escapeShellArgs cfg.extraOptions}";
         Restart = "on-abort";
       };
     };

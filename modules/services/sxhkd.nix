@@ -93,7 +93,7 @@ in
 
     xsession.initExtra =
       let
-        sxhkdCommand = "${cfg.package}/bin/sxhkd ${toString cfg.extraOptions}";
+        sxhkdCommand = "${lib.getExe cfg.package} ${toString cfg.extraOptions}";
       in
       ''
         systemctl --user stop sxhkd.scope 2> /dev/null || true

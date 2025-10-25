@@ -1,10 +1,5 @@
-{ config, ... }:
-
 {
-  services.gromit-mpx = {
-    enable = true;
-    package = config.lib.test.mkStubPackage { };
-  };
+  services.gromit-mpx.enable = true;
 
   nmt.script = import ./nmt-script.nix ./default-configuration.cfg;
 }

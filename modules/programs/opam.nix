@@ -26,15 +26,15 @@ in
     home.packages = [ cfg.package ];
 
     programs.bash.initExtra = lib.mkIf cfg.enableBashIntegration ''
-      eval "$(${cfg.package}/bin/opam env --shell=bash)"
+      eval "$(${lib.getExe cfg.package} env --shell=bash)"
     '';
 
     programs.zsh.initContent = lib.mkIf cfg.enableZshIntegration ''
-      eval "$(${cfg.package}/bin/opam env --shell=zsh)"
+      eval "$(${lib.getExe cfg.package} env --shell=zsh)"
     '';
 
     programs.fish.shellInit = lib.mkIf cfg.enableFishIntegration ''
-      eval (${cfg.package}/bin/opam env --shell=fish)
+      eval (${lib.getExe cfg.package} env --shell=fish)
     '';
   };
 }

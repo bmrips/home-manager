@@ -114,7 +114,7 @@ let
 
   importTrustBashFunctions =
     let
-      gpg = "${cfg.package}/bin/gpg";
+      gpg = lib.getExe cfg.package;
     in
     ''
       function gpgKeyId() {
@@ -137,7 +137,7 @@ let
 
   keyringFiles =
     let
-      gpg = "${cfg.package}/bin/gpg";
+      gpg = lib.getExe cfg.package;
 
       importKey =
         { source, trust, ... }:
@@ -305,7 +305,7 @@ in
 
       importGpgKeys =
         let
-          gpg = "${cfg.package}/bin/gpg";
+          gpg = lib.getExe cfg.package;
 
           importKey =
             { source, trust, ... }:

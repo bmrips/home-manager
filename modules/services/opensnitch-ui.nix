@@ -32,7 +32,7 @@ in
 
       Service = {
         Environment = [ "PATH=${config.home.profileDirectory}/bin" ];
-        ExecStart = "${cfg.package}/bin/opensnitch-ui";
+        ExecStart = lib.getExe cfg.package;
       };
 
       Install = {

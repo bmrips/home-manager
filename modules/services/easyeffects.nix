@@ -135,8 +135,8 @@ in
       Install.WantedBy = [ "graphical-session.target" ];
 
       Service = {
-        ExecStart = "${cfg.package}/bin/easyeffects --gapplication-service ${presetOpts}";
-        ExecStop = "${cfg.package}/bin/easyeffects --quit";
+        ExecStart = "${lib.getExe cfg.package} --gapplication-service ${presetOpts}";
+        ExecStop = "${lib.getExe cfg.package} --quit";
         Restart = "on-failure";
         RestartSec = 5;
       };

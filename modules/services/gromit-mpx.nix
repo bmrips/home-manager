@@ -240,7 +240,7 @@ in
 
       Service = {
         Type = "simple";
-        ExecStart = "${cfg.package}/bin/gromit-mpx ${commandArgs}";
+        ExecStart = "${lib.getExe cfg.package} ${commandArgs}";
       };
 
       Install = {

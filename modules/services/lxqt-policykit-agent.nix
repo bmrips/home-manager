@@ -36,7 +36,7 @@ in
       };
 
       Service = {
-        ExecStart = "${cfg.package}/bin/lxqt-policykit-agent";
+        ExecStart = lib.getExe cfg.package;
       };
     };
   };

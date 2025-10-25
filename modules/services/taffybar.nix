@@ -37,7 +37,7 @@ in
       Service = {
         Type = "dbus";
         BusName = "org.taffybar.Bar";
-        ExecStart = "${cfg.package}/bin/taffybar";
+        ExecStart = lib.getExe cfg.package;
         Restart = "on-failure";
         RestartSec = "2s";
       };

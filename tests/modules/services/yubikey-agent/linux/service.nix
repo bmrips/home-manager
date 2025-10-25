@@ -1,10 +1,7 @@
-{ config, ... }:
-
 {
-  services.yubikey-agent = {
-    enable = true;
-    package = config.lib.test.mkStubPackage { outPath = "@yubikey-agent@"; };
-  };
+  services.yubikey-agent.enable = true;
+
+  test.stubs.yubikey-agent.name = "yubikey-agent";
 
   nmt.script = ''
     serviceFile=home-files/.config/systemd/user/yubikey-agent.service

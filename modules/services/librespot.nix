@@ -98,7 +98,7 @@ in
 
       Service = {
         ExecStart = pkgs.writeShellScript "librespot" ''
-          exec '${cfg.package}/bin/librespot' ${lib.escapeShellArgs cfg.args}
+          exec '${lib.getExe cfg.package}' ${lib.escapeShellArgs cfg.args}
         '';
         Restart = "always";
         RestartSec = 12;

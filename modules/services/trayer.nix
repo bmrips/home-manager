@@ -170,7 +170,7 @@ in
         Install.WantedBy = [ "tray.target" ];
 
         Service = {
-          ExecStart = "${cfg.package}/bin/trayer ${parameters}";
+          ExecStart = "${lib.getExe cfg.package} ${parameters}";
           Restart = "on-failure";
         };
       };

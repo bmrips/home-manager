@@ -48,7 +48,7 @@ in
         };
 
         Service = {
-          ExecStart = "${cfg.package}/bin/lorri daemon";
+          ExecStart = "${lib.getExe cfg.package} daemon";
           PrivateTmp = true;
           ProtectSystem = "strict";
           ProtectHome = "read-only";

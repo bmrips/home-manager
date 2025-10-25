@@ -14,7 +14,7 @@ let
     ++ lib.optional (cfg.agents != [ ]) "--agents ${lib.concatStringsSep "," cfg.agents}"
     ++ lib.optional (cfg.inheritType != null) "--inherit ${cfg.inheritType}";
 
-  shellCommand = "${cfg.package}/bin/keychain --eval ${lib.concatStringsSep " " flags} ${lib.concatStringsSep " " cfg.keys}";
+  shellCommand = "${lib.getExe cfg.package} --eval ${lib.concatStringsSep " " flags} ${lib.concatStringsSep " " cfg.keys}";
 
 in
 {

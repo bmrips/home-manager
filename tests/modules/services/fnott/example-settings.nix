@@ -1,13 +1,6 @@
 {
-  config,
-  ...
-}:
-
-{
   services.fnott = {
     enable = true;
-    package = config.lib.test.mkStubPackage { };
-
     settings = {
       main = {
         notification-margin = 5;

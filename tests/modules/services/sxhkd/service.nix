@@ -8,9 +8,10 @@
 
   services.sxhkd = {
     enable = true;
-    package = config.lib.test.mkStubPackage { outPath = "@sxhkd@"; };
     extraOptions = [ "-m 1" ];
   };
+
+  test.stubs.sxhkd.name = "sxhkd";
 
   nmt.script = ''
     xsessionFile=home-files/.xsession

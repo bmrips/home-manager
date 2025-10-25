@@ -1,10 +1,7 @@
-{ config, ... }:
-
 {
   home.stateVersion = "21.11";
 
   programs.waybar = {
-    package = config.lib.test.mkStubPackage { outPath = "@waybar@"; };
     enable = true;
     style = ''
       * {

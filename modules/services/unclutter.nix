@@ -58,7 +58,7 @@ in
 
       Service = {
         ExecStart = ''
-          ${cfg.package}/bin/unclutter \
+          ${lib.getExe cfg.package} \
             --timeout ${toString cfg.timeout} \
             --jitter ${toString (cfg.threshold - 1)} \
             ${lib.concatMapStrings (x: " --${x}") cfg.extraOptions}

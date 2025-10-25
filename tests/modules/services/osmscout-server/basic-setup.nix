@@ -1,9 +1,6 @@
-{ config, ... }:
-
 {
   services.osmscout-server = {
     enable = true;
-    package = config.lib.test.mkStubPackage { outPath = "@osmscout-server@"; };
     network = {
       startWhenNeeded = true;
       listenAddress = "0.0.0.0";

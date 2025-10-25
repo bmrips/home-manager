@@ -103,7 +103,7 @@ in
         Type = "simple";
         Restart = "on-failure";
         RestartSec = "5s";
-        ExecStart = "${cfg.package}/bin/mpDris2";
+        ExecStart = lib.getExe cfg.package;
         BusName = "org.mpris.MediaPlayer2.mpd";
       };
     };

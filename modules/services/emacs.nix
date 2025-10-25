@@ -222,7 +222,7 @@ in
           enable = true;
           config = {
             ProgramArguments = [
-              "${cfg.package}/bin/emacs"
+              (lib.getExe cfg.package)
               "--fg-daemon"
             ]
             ++ cfg.extraOptions;

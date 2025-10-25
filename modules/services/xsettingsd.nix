@@ -93,7 +93,7 @@ in
       Service = {
         Environment = [ "PATH=${config.home.profileDirectory}/bin" ];
         ExecStart =
-          "${cfg.package}/bin/xsettingsd"
+          lib.getExe cfg.package
           + lib.optionalString (cfg.configFile != null) " -c ${lib.escapeShellArg cfg.configFile}";
         Restart = "on-abort";
       };

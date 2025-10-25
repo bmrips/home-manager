@@ -85,7 +85,7 @@ in
 
       Service = {
         Type = "oneshot";
-        ExecStart = "${cfg.package}/bin/mbsync ${lib.concatStringsSep " " mbsyncOptions}";
+        ExecStart = "${lib.getExe cfg.package} ${lib.concatStringsSep " " mbsyncOptions}";
       }
       // (lib.optionalAttrs (cfg.postExec != null) {
         ExecStartPost = cfg.postExec;

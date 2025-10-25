@@ -79,7 +79,7 @@ in
       };
 
       Service = {
-        ExecStart = "${cfg.package}/bin/dwm-status ${configFile} --quiet";
+        ExecStart = "${lib.getExe cfg.package} ${configFile} --quiet";
       };
     };
   };

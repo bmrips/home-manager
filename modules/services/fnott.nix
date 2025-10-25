@@ -98,7 +98,7 @@ in
         Type = "dbus";
         BusName = "org.freedesktop.Notifications";
         ExecStart = concatStringsSep' " " [
-          "${cfg.package}/bin/fnott"
+          (lib.getExe cfg.package)
           "-c ${lib.escapeShellArg cfg.configFile}"
           (lib.escapeShellArgs cfg.extraFlags)
         ];
@@ -108,7 +108,7 @@ in
     xdg.dataFile."dbus-1/services/fnott.service".text = ''
       [D-BUS Service]
       Name=org.freedesktop.Notifications
-      Exec=${cfg.package}/bin/fnott
+      Exec=${lib.getExe cfg.package}
       SystemdService=fnott.service
     '';
 

@@ -128,7 +128,7 @@ in
 
     home.packages = [ cfg.package ];
 
-    xsession.windowManager.command = "${cfg.package}/bin/herbstluftwm --locked";
+    xsession.windowManager.command = "${lib.getExe cfg.package} --locked";
 
     xdg.configFile."herbstluftwm/autostart".source = pkgs.writeShellScript "herbstluftwm-autostart" ''
       shopt -s expand_aliases

@@ -109,7 +109,7 @@ in
       enable = true;
       config = {
         ProgramArguments = [
-          "${lib.getExe ollamaPackage}"
+          (lib.getExe ollamaPackage)
           "serve"
         ];
         EnvironmentVariables = cfg.environmentVariables // {

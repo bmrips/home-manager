@@ -1,9 +1,6 @@
-{ config, ... }:
-
 {
   services.gromit-mpx = {
     enable = true;
-    package = config.lib.test.mkStubPackage { };
     tools = [
       {
         device = "default";

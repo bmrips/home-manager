@@ -553,7 +553,7 @@ in
         launchd.agents =
           let
             baseArguments = [
-              "${lib.getExe cfg.package}"
+              (lib.getExe cfg.package)
               "for-each-repo"
               "--keep-going"
               "--config=maintenance.repo"

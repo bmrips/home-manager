@@ -45,7 +45,7 @@ in
         Requires = [ "mpd.service" ];
       };
       Service = {
-        ExecStart = "${cfg.package}/bin/listenbrainz-mpd";
+        ExecStart = lib.getExe cfg.package;
         Restart = "always";
         RestartSec = 5;
         Type = if lib.versionAtLeast cfg.package.version "2.3.2" then "notify" else "simple";

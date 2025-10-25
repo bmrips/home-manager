@@ -39,7 +39,7 @@ in
     ];
 
     systemd.user.services.devilspie2 = {
-      Service.ExecStart = "${lib.getExe cfg.package}";
+      Service.ExecStart = lib.getExe cfg.package;
       Unit = {
         Description = "devilspie2";
         After = [ "graphical-session.target" ];

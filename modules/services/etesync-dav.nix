@@ -60,7 +60,7 @@ in
       };
 
       Service = {
-        ExecStart = "${cfg.package}/bin/etesync-dav";
+        ExecStart = lib.getExe cfg.package;
         Environment = toEnvironmentCfg ({ ETESYNC_URL = cfg.serverUrl; } // cfg.settings);
       };
 

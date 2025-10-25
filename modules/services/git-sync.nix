@@ -33,7 +33,7 @@ let
           )
         }"
         "GIT_SYNC_DIRECTORY=${lib.strings.escapeShellArg repo.path}"
-        "GIT_SYNC_COMMAND=${cfg.package}/bin/git-sync"
+        "GIT_SYNC_COMMAND=${lib.getExe cfg.package}"
         "GIT_SYNC_REPOSITORY=${lib.strings.escapeShellArg repo.uri}"
         "GIT_SYNC_INTERVAL=${toString repo.interval}"
       ];
@@ -49,7 +49,7 @@ let
       ProcessType = "Background";
       WorkingDirectory = "${repo.path}";
       WatchPaths = [ "${repo.path}" ];
-      ProgramArguments = [ "${cfg.package}/bin/git-sync" ];
+      ProgramArguments = [ (lib.getExe cfg.package) ];
     };
   };
 

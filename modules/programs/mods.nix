@@ -61,19 +61,19 @@ in
 
     programs.bash.initExtra = mkIf cfg.enableBashIntegration (
       mkOrder 200 ''
-        source <(${cfg.package}/bin/mods completion bash)
+        source <(${lib.getExe cfg.package} completion bash)
       ''
     );
 
     programs.zsh.initContent = mkIf cfg.enableZshIntegration (
       mkOrder 200 ''
-        source <(${cfg.package}/bin/mods completion zsh)
+        source <(${lib.getExe cfg.package} completion zsh)
       ''
     );
 
     programs.fish.interactiveShellInit = mkIf cfg.enableFishIntegration (
       mkOrder 200 ''
-        ${cfg.package}/bin/mods completion fish | source
+        ${lib.getExe cfg.package} completion fish | source
       ''
     );
   };

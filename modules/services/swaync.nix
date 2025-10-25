@@ -119,7 +119,7 @@ in
       Service = {
         Type = "dbus";
         BusName = "org.freedesktop.Notifications";
-        ExecStart = "${lib.getExe cfg.package}";
+        ExecStart = lib.getExe cfg.package;
         Restart = "on-failure";
       };
 

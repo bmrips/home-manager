@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   script = pkgs.writeShellScript "script.sh" ''
@@ -8,8 +8,6 @@ in
 {
   services.sxhkd = {
     enable = true;
-
-    package = config.lib.test.mkStubPackage { outPath = "@sxhkd@"; };
 
     keybindings = {
       "super + a" = "run command a";

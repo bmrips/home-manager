@@ -54,7 +54,7 @@ in
       };
 
       Service = {
-        ExecStart = "${cfg.package}/bin/copyq";
+        ExecStart = lib.getExe cfg.package;
         Restart = "on-failure";
         Environment = lib.optional cfg.forceXWayland "QT_QPA_PLATFORM=xcb";
       };

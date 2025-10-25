@@ -1,5 +1,3 @@
-{ config, ... }:
-
 {
   programs = {
     zsh.enable = true;
@@ -7,9 +5,10 @@
     pls = {
       enable = true;
       enableZshIntegration = true;
-      package = config.lib.test.mkStubPackage { outPath = "@pls@"; };
     };
   };
+
+  test.stubs.pls.name = "pls";
 
   nmt.script = ''
     assertFileExists home-files/.zshrc

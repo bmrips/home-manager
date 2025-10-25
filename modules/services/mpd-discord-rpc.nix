@@ -51,7 +51,7 @@ in
         PartOf = [ "graphical-session.target" ];
       };
       Service = {
-        ExecStart = "${cfg.package}/bin/mpd-discord-rpc";
+        ExecStart = lib.getExe cfg.package;
         Restart = "on-failure";
       };
       Install.WantedBy = [ "graphical-session.target" ];

@@ -46,16 +46,16 @@ in
       home.packages = [ cfg.package ];
 
       programs.bash.initExtra = mkIf cfg.enableBashIntegration ''
-        eval "$(${cfg.package}/bin/scmpuff init ${mkArgs "bash"})"
+        eval "$(${lib.getExe cfg.package} init ${mkArgs "bash"})"
       '';
 
       programs.zsh.initContent = mkIf cfg.enableZshIntegration ''
-        eval "$(${cfg.package}/bin/scmpuff init ${mkArgs "zsh"})"
+        eval "$(${lib.getExe cfg.package} init ${mkArgs "zsh"})"
       '';
 
       programs.fish.interactiveShellInit = mkIf cfg.enableFishIntegration (
         lib.mkAfter ''
-          ${cfg.package}/bin/scmpuff init ${mkArgs "fish"} | source
+          ${lib.getExe cfg.package} init ${mkArgs "fish"} | source
         ''
       );
     }

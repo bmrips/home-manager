@@ -145,7 +145,7 @@ in
               o = cfg.output;
             };
           in
-          "${cfg.package}/bin/wlsunset ${args}";
+          "${lib.getExe cfg.package} ${args}";
       };
 
       Install = {

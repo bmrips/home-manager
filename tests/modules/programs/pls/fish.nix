@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ lib, ... }:
 
 {
   programs = {
@@ -7,9 +7,10 @@
     pls = {
       enable = true;
       enableFishIntegration = true;
-      package = config.lib.test.mkStubPackage { outPath = "@pls@"; };
     };
   };
+
+  test.stubs.pls.name = "pls";
 
   # Needed to avoid error with dummy fish package.
   xdg.dataFile."fish/home-manager_generated_completions".source = lib.mkForce (

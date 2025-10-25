@@ -206,7 +206,7 @@ in
       enable = true;
       config = {
         ProgramArguments = [
-          "${cfg.package}/bin/espanso"
+          (lib.getExe cfg.package)
           "launcher"
         ];
         EnvironmentVariables.PATH = "${cfg.package}/bin:/usr/bin:/bin:/usr/sbin:/sbin";

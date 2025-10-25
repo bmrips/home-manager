@@ -20,7 +20,7 @@ in
 
   config = lib.mkIf cfg.enable {
     home.sessionVariables = {
-      LESSOPEN = "|${cfg.package}/bin/lesspipe.sh %s";
+      LESSOPEN = "|${lib.getExe cfg.package} %s";
     };
   };
 }

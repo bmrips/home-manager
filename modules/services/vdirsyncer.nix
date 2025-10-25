@@ -76,8 +76,8 @@ in
             optStr = lib.concatStringsSep " " vdirsyncerOptions;
           in
           [
-            "${cfg.package}/bin/vdirsyncer ${optStr} metasync"
-            "${cfg.package}/bin/vdirsyncer ${optStr} sync"
+            "${lib.getExe cfg.package} ${optStr} metasync"
+            "${lib.getExe cfg.package} ${optStr} sync"
           ];
       };
     };

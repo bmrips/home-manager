@@ -3,7 +3,6 @@
 {
   services.xsettingsd = {
     enable = true;
-    package = config.lib.test.mkStubPackage { };
     settings = {
       "Net/ThemeName" = "Numix";
       "Xft/Antialias" = true;
@@ -11,6 +10,9 @@
       "Xft/RGBA" = "rgb";
     };
   };
+
+  test.stubs.xsettingsd.name = "xsettingsd";
+
   nmt.script = ''
     serviceFile=home-files/.config/systemd/user/xsettingsd.service
 

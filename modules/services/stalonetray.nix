@@ -72,7 +72,7 @@ in
           };
 
           Service = {
-            ExecStart = "${cfg.package}/bin/stalonetray";
+            ExecStart = lib.getExe cfg.package;
             Restart = "on-failure";
           };
         };

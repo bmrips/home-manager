@@ -37,7 +37,7 @@ in
 
     programs.git.settings.credential.helper = lib.mkAfter [
       (
-        "${cfg.package}/bin/git-credential-oauth"
+        lib.getExe cfg.package
         + lib.optionalString (cfg.extraFlags != [ ]) " ${lib.strings.concatStringsSep " " cfg.extraFlags}"
       )
     ];

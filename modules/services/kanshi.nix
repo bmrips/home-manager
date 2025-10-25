@@ -367,7 +367,7 @@ in
 
           Service = {
             Type = "simple";
-            ExecStart = "${cfg.package}/bin/kanshi";
+            ExecStart = lib.getExe cfg.package;
             Restart = "always";
           };
 

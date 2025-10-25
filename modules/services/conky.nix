@@ -47,7 +47,7 @@ in
         Restart = "always";
         RestartSec = "3";
         ExecStart = toString (
-          [ "${cfg.package}/bin/conky" ]
+          [ (lib.getExe cfg.package) ]
           ++ lib.optional (cfg.extraConfig != "") "--config ${pkgs.writeText "conky.conf" cfg.extraConfig}"
         );
       };

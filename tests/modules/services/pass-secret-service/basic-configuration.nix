@@ -1,10 +1,12 @@
-{ config, ... }:
-
 {
   services.pass-secret-service = {
     enable = true;
-    package = config.lib.test.mkStubPackage { };
     storePath = "/mnt/password-store";
+  };
+
+  test.stubs.pass-secret-service = {
+    name = "pass_secret_service";
+    outPath = null;
   };
 
   nmt.script = ''

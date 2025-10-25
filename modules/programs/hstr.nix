@@ -26,11 +26,11 @@ in
     home.packages = [ cfg.package ];
 
     programs.bash.initExtra = lib.mkIf cfg.enableBashIntegration ''
-      eval "$(${cfg.package}/bin/hstr --show-configuration)"
+      eval "$(${lib.getExe cfg.package} --show-configuration)"
     '';
 
     programs.zsh.initContent = lib.mkIf cfg.enableZshIntegration ''
-      eval "$(${cfg.package}/bin/hstr --show-zsh-configuration)"
+      eval "$(${lib.getExe cfg.package} --show-zsh-configuration)"
     '';
   };
 }

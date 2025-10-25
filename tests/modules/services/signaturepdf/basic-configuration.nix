@@ -8,6 +8,7 @@
   };
 
   test.stubs.signaturepdf = {
+    name = "signaturepdf";
     outPath = "/signaturepdf";
   };
 

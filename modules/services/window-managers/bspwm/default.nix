@@ -104,6 +104,6 @@ in
       export _JAVA_AWT_WM_NONREPARENTING=1
     '';
 
-    xsession.windowManager.command = "${cfg.package}/bin/bspwm -c ${config.xdg.configHome}/bspwm/bspwmrc";
+    xsession.windowManager.command = "${lib.getExe cfg.package} -c ${config.xdg.configHome}/bspwm/bspwmrc";
   };
 }

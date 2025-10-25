@@ -1,13 +1,5 @@
 {
-  config,
-  ...
-}:
-
-{
-  services.fnott = {
-    enable = true;
-    package = config.lib.test.mkStubPackage { outPath = "@fnott@"; };
-  };
+  services.fnott.enable = true;
 
   nmt.script = ''
     assertFileContent \

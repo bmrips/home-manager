@@ -127,8 +127,8 @@ in
       };
 
       Service = {
-        Environment = with pkgs; "PATH=${makeBinPath cfg.extraPackages}";
-        ExecStart = "${cfg.package}/bin/fusuma";
+        Environment = "PATH=${makeBinPath cfg.extraPackages}";
+        ExecStart = lib.getExe cfg.package;
       };
 
       Install = {

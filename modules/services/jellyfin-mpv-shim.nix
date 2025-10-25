@@ -125,7 +125,7 @@ in
       };
 
       Service = {
-        ExecStart = "${lib.getExe cfg.package}";
+        ExecStart = lib.getExe cfg.package;
       };
 
       Install = {

@@ -1,12 +1,6 @@
-{ config, ... }:
-
 {
   services.parcellite = {
     enable = true;
-    package = config.lib.test.mkStubPackage {
-      name = "parcellite";
-      outPath = "@parcellite@";
-    };
     extraOptions = [ "--no-icon" ];
   };
 

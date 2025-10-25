@@ -70,7 +70,7 @@ in
         KillMode = "process";
         Restart = "on-failure";
         ExecStart = lib.escapeShellArgs (
-          [ "${cfg.package}/bin/cachix" ]
+          [ (lib.getExe cfg.package) ]
           ++ optional cfg.verbose "--verbose"
           ++ optional (cfg.host != null) "--host ${cfg.host}"
           ++ [

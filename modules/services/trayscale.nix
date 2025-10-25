@@ -42,7 +42,7 @@ in
         WantedBy = [ "graphical-session.target" ];
       };
       Service.ExecStart = toString (
-        [ "${cfg.package}/bin/trayscale" ] ++ lib.optional cfg.hideWindow "--hide-window"
+        [ (lib.getExe cfg.package) ] ++ lib.optional cfg.hideWindow "--hide-window"
       );
     };
   };

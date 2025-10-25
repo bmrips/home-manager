@@ -71,7 +71,7 @@ in
       };
 
       Service = {
-        ExecStart = "${cfg.package}/bin/signaturepdf ${toString cfg.port} ${lib.escapeShellArgs (extraConfigToArgs cfg.extraConfig)}";
+        ExecStart = "${lib.getExe cfg.package} ${toString cfg.port} ${lib.escapeShellArgs (extraConfigToArgs cfg.extraConfig)}";
       };
 
       Install = {

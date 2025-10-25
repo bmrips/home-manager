@@ -58,7 +58,7 @@ in
       Install.WantedBy = [ "default.target" ];
 
       Service = {
-        ExecStart = "${cfg.package}/bin/spotifyd --no-daemon --config-path ${configFile}";
+        ExecStart = "${lib.getExe cfg.package} --no-daemon --config-path ${configFile}";
         Restart = "always";
         RestartSec = 12;
       };

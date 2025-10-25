@@ -211,7 +211,7 @@ in
         Type = "dbus";
         BusName = "org.freedesktop.Notifications";
         ExecStart = lib.escapeShellArgs (
-          [ "${cfg.package}/bin/dunst" ]
+          [ (lib.getExe cfg.package) ]
           ++
             # Using `-config` breaks dunst's drop-ins, so only use it when an alternative path is set
             lib.optionals (cfg.configFile != null) [

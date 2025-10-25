@@ -62,7 +62,7 @@ in
         WantedBy = [ "default.target" ];
       };
       Service = {
-        ExecStart = with args; "${cfg.package}/bin/comodoro server start ${preset} ${protocols}";
+        ExecStart = with args; "${lib.getExe cfg.package} server start ${preset} ${protocols}";
         ExecSearchPath = "/bin";
         Restart = "always";
         RestartSec = 10;

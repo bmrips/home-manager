@@ -282,7 +282,7 @@ in
                 enable = true;
                 config = {
                   ProgramArguments = [
-                    "${lib.getExe cfg.package}"
+                    (lib.getExe cfg.package)
                     "daemon"
                   ];
                   EnvironmentVariables = lib.optionalAttrs (daemonCfg.logLevel != null) {

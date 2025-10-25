@@ -141,7 +141,7 @@ in
 
         ExecStart = "${pkgs.writeShellScript "clipcatd-exec-start" ''
           PATH=/run/current-system/sw/bin:
-          ${cfg.package}/bin/clipcatd --no-daemon --replace
+          ${lib.getExe cfg.package} --no-daemon --replace
         ''}";
 
         Restart = "on-failure";

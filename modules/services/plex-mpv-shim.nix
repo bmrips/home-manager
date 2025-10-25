@@ -60,7 +60,7 @@ in
       };
 
       Service = {
-        ExecStart = "${cfg.package}/bin/plex-mpv-shim";
+        ExecStart = lib.getExe cfg.package;
       };
 
       Install = {

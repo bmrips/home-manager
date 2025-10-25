@@ -82,7 +82,7 @@ in
       Service = {
         Type = "forking";
         ExecStart =
-          "${lib.getExe cfg.package}"
+          lib.getExe cfg.package
           + lib.optionalString (cfg.timeout != null) " -t ${toString cfg.timeout}"
           +
             lib.optionalString (cfg.mapExpression != { })

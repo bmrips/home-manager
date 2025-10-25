@@ -46,7 +46,7 @@ in
       Service = {
         CPUSchedulingPolicy = "idle";
         IOSchedulingClass = "idle";
-        ExecStart = "${cfg.package}/bin/task synchronize";
+        ExecStart = "${lib.getExe cfg.package} synchronize";
       };
     };
 

@@ -34,7 +34,7 @@ in
           };
 
           Service = {
-            ExecStart = "${cfg.package}/bin/yubikey-agent -l %t/yubikey-agent/yubikey-agent.sock";
+            ExecStart = "${lib.getExe cfg.package} -l %t/yubikey-agent/yubikey-agent.sock";
             Type = "simple";
             # /run/user/$UID for the socket
             ReadWritePaths = [ "%t" ];
@@ -69,7 +69,7 @@ in
           enable = true;
           config = {
             ProgramArguments = [
-              "${cfg.package}/bin/yubikey-agent"
+              (lib.getExe cfg.package)
               "-l"
               "/tmp/yubikey-agent.sock"
             ];

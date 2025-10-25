@@ -166,7 +166,7 @@ in
       Service = {
         Type = "oneshot";
         RemainAfterExit = true;
-        ExecStart = "${cfg.package}/bin/clipse -listen";
+        ExecStart = "${lib.getExe cfg.package} -listen";
       };
 
       Install = {

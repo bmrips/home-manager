@@ -158,7 +158,7 @@ in
       enable = true;
       config = {
         ProgramArguments = [
-          "${lib.getExe cfg.package}"
+          (lib.getExe cfg.package)
           "clean"
           "user"
         ]

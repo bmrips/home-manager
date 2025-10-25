@@ -60,18 +60,18 @@ in
 
     programs.bash.initExtra = mkIf cfg.enableBashIntegration ''
       if [[ :$SHELLOPTS: =~ :(vi|emacs): ]]; then
-        eval "$(${cfg.package}/bin/navi widget bash)"
+        eval "$(${lib.getExe cfg.package} widget bash)"
       fi
     '';
 
     programs.zsh.initContent = mkIf cfg.enableZshIntegration ''
       if [[ $options[zle] = on ]]; then
-        eval "$(${cfg.package}/bin/navi widget zsh)"
+        eval "$(${lib.getExe cfg.package} widget zsh)"
       fi
     '';
 
     programs.fish.shellInit = mkIf cfg.enableFishIntegration ''
-      ${cfg.package}/bin/navi widget fish | source
+      ${lib.getExe cfg.package} widget fish | source
     '';
 
     home.file."${configDir}/navi/config.yaml" = mkIf (cfg.settings != { }) {

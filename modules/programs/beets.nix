@@ -106,7 +106,7 @@ in
           After = lib.optional config.services.mpd.enable "mpd.service";
           Requires = lib.optional config.services.mpd.enable "mpd.service";
         };
-        Service.ExecStart = "${cfg.package}/bin/beet mpdstats";
+        Service.ExecStart = "${lib.getExe cfg.package} mpdstats";
         Install.WantedBy = [ "default.target" ];
       };
     })

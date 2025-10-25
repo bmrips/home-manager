@@ -1,9 +1,6 @@
-{ config, ... }:
-
 {
   services.trayer = {
     enable = true;
-    package = config.lib.test.mkStubPackage { outPath = "@trayer@"; };
     settings = {
       edge = "top";
       padding = 6;
@@ -14,6 +11,8 @@
       monitor = 1;
     };
   };
+
+  test.stubs.trayer.name = "trayer";
 
   nmt.script = ''
     serviceFile=home-files/.config/systemd/user/trayer.service

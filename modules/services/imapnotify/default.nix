@@ -68,7 +68,7 @@ let
         config = {
           # Use the nix store path for config to ensure service restarts when it changes
           ProgramArguments = [
-            "${lib.getExe cfg.package}"
+            (lib.getExe cfg.package)
             "-conf"
             "${genAccountConfig account}"
           ];

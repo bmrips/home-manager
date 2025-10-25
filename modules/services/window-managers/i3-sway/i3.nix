@@ -271,7 +271,7 @@ in
 
         home.packages = lib.mkIf (cfg.package != null) [ cfg.package ];
 
-        xsession.windowManager.command = "${cfg.package}/bin/i3";
+        xsession.windowManager.command = lib.getExe cfg.package;
 
         xdg.configFile."i3/config" = {
           source = checkI3Config;

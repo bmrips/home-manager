@@ -94,7 +94,7 @@ in
       };
 
       Service = {
-        ExecStart = "${lib.getExe cfg.package}";
+        ExecStart = lib.getExe cfg.package;
         Restart = "always";
         RestartSec = "10";
       };

@@ -64,8 +64,8 @@ in
       };
 
       Service = {
-        ExecStart = "${cfg.package}/bin/pulseeffects --gapplication-service ${presetOpts}";
-        ExecStop = "${cfg.package}/bin/pulseeffects --quit";
+        ExecStart = "${lib.getExe cfg.package} --gapplication-service ${presetOpts}";
+        ExecStop = "${lib.getExe cfg.package} --quit";
         Restart = "on-failure";
         RestartSec = 5;
       };

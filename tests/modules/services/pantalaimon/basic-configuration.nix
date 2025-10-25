@@ -1,9 +1,6 @@
-{ config, ... }:
-
 {
   services.pantalaimon = {
     enable = true;
-    package = config.lib.test.mkStubPackage { outPath = "@pantalaimon@"; };
     settings = {
       Default = {
         LogLevel = "Debug";

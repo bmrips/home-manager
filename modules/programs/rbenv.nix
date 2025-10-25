@@ -79,15 +79,15 @@ in
     };
 
     programs.bash.initExtra = mkIf cfg.enableBashIntegration ''
-      eval "$(${cfg.package}/bin/rbenv init - bash)"
+      eval "$(${lib.getExe cfg.package} init - bash)"
     '';
 
     programs.zsh.initContent = mkIf cfg.enableZshIntegration ''
-      eval "$(${cfg.package}/bin/rbenv init - zsh)"
+      eval "$(${lib.getExe cfg.package} init - zsh)"
     '';
 
     programs.fish.shellInit = mkIf cfg.enableFishIntegration ''
-      ${cfg.package}/bin/rbenv init - fish | source
+      ${lib.getExe cfg.package} init - fish | source
     '';
   };
 }

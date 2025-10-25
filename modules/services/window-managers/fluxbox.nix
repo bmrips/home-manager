@@ -113,7 +113,7 @@ in
     };
 
     xsession.windowManager.command = lib.escapeShellArgs (
-      [ "${cfg.package}/bin/fluxbox" ] ++ lib.remove "" cfg.extraCommandLineArgs
+      [ (lib.getExe cfg.package) ] ++ lib.remove "" cfg.extraCommandLineArgs
     );
   };
 }
