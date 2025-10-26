@@ -44,8 +44,6 @@ in
     dotDir = lib.mkIf (case == "zdotdir-variable") "${homeDir}/.config/zsh";
   };
 
-  test.stubs.zsh = { };
-
   test.asserts.warnings.expected = lib.optionals (case == "relative") [
     ''
       Using relative paths in programs.zsh.history.path is deprecated and will be removed in a future release.

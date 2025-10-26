@@ -13,10 +13,6 @@
     };
   };
 
-  test.stubs = {
-    zellij = { };
-  };
-
   nmt.script = ''
     assertFileExists home-files/.config/zellij/config.kdl
 

@@ -32,8 +32,6 @@ in
     inherit dotDir;
   };
 
-  test.stubs.zsh = { };
-
   test.asserts.warnings.expected = lib.optionals (case == "relative") [
     ''
       Using relative paths in programs.zsh.dotDir is deprecated and will be removed in a future release.

@@ -19,8 +19,6 @@
 
   home.stateVersion = "22.11";
 
-  test.stubs.mpd = { };
-
   nmt.script = ''
     serviceFile=$(normalizeStorePaths home-files/.config/systemd/user/mpdscribble.service)
     assertFileContent "$serviceFile" ${./basic-configuration.service}

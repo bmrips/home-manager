@@ -3,8 +3,6 @@
     enable = true;
   };
 
-  test.stubs.easyeffects = { };
-
   nmt.script = ''
     serviceFile=home-files/.config/systemd/user/easyeffects.service
 

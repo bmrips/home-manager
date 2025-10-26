@@ -2,8 +2,6 @@
 {
   programs.clock-rs.enable = true;
 
-  tests.stubs.clock-rs = { };
-
   nmt.script =
     let
       configDir =

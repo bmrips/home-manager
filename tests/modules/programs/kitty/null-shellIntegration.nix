@@ -5,8 +5,6 @@
     shellIntegration.mode = null;
   };
 
-  test.stubs.kitty = { };
-
   nmt.script = ''
     assertFileExists home-files/.config/kitty/kitty.conf
     assertFileContent \

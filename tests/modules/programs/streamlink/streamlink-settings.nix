@@ -14,8 +14,6 @@
     };
   };
 
-  test.stubs.streamlink = { };
-
   nmt.script =
     let
       streamlinkConfig =

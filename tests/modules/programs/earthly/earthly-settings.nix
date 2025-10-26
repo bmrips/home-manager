@@ -12,8 +12,6 @@
     };
   };
 
-  test.stubs.earthly = { };
-
   nmt.script = ''
     assertFileExists home-files/.earthly/config.yml
     assertFileContent home-files/.earthly/config.yml ${./earthly-settings.yml}

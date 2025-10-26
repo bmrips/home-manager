@@ -23,8 +23,6 @@
     };
   };
 
-  test.stubs.easyeffects = { };
-
   nmt.script = ''
     assertFileContent \
       home-files/.config/easyeffects/input/example-preset.json "${./example-preset.json}"

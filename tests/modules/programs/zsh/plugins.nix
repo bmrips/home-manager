@@ -19,8 +19,6 @@ in
     ];
   };
 
-  test.stubs.zsh = { };
-
   nmt.script = ''
     # Test the plugin directories loop structure
     assertFileContains home-files/.zshrc '# Add plugin directories to PATH and fpath'

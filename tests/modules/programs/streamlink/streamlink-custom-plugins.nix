@@ -15,8 +15,6 @@
     };
   };
 
-  test.stubs.streamlink = { };
-
   nmt.script =
     let
       configDir =
