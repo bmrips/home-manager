@@ -57,18 +57,19 @@ in
               else
                 "$XDG_RUNTIME_DIR/${cfg.socket}";
 
+            # Preserve $SSH_AUTH_SOCK only if it stems from a forwarded agent
+            # which is the case if both $SSH_AUTH_SOCK and $SSH_CONNECTION are
+            # set.
             bashIntegration = ''
-              if [ -z "$SSH_AUTH_SOCK" ]; then
+              if [ -z "$SSH_AUTH_SOCK" -o -z "$SSH_CONNECTION" ]; then
                 export SSH_AUTH_SOCK=${socketPath}
               fi
             '';
-
             fishIntegration = ''
-              if test -z "$SSH_AUTH_SOCK"
+              if test -z "$SSH_AUTH_SOCK"; or test -z "$SSH_CONNECTION"
                 set -x SSH_AUTH_SOCK ${socketPath}
               end
             '';
-
             nushellIntegration =
               let
                 socketPath =
@@ -78,7 +79,7 @@ in
                     ''$"($env.XDG_RUNTIME_DIR)/${cfg.socket}"'';
               in
               ''
-                if ($env.SSH_AUTH_SOCK | is-empty) {
+                if ($env.SSH_AUTH_SOCK | is-empty) or ($env.SSH_CONNECTION | is-empty) {
                   $env.SSH_AUTH_SOCK = ${socketPath}
                 }
               '';
